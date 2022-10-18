@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'RTVU - UTO')
 
 @section('content_header')
     <h1>Pagina Principal</h1>
