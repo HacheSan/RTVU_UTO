@@ -14,17 +14,17 @@ return new class extends Migration
     public function up()
     {
         Schema::create('programa', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('categoria_dia',50);
-            $table->string('nombre_programa',250);
+            $table->id();
+            $table->string('categoria_dia');
+            $table->string('nombre_programa');
             $table->text('descripcion');
-            $table->string('foto_programa',150);
+            $table->string('foto_programa');
             $table->time('hora');
             $table->date('fecha_registro');
 
-            $table->unsignedBigInteger('usuario_id');
+            $table->unsignedBigInteger('user_id');
             //usuario
-            $table->foreign('usuario_id')->references('id')->on('users')
+            $table->foreign('user_id')->references('id')->on('users')
             ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');

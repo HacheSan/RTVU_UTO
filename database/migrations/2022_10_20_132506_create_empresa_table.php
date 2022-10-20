@@ -13,10 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('streaming', function (Blueprint $table) {
+        Schema::create('empresa', function (Blueprint $table) {
             $table->id();
-            $table->string('tipo_str');
-            $table->string('url_ip');
+            $table->string('nombre_empresa');
+            $table->text('descripcion');
+            $table->string('foto_empresa');
+            $table->text('mision');
+            $table->text('vision');
+            $table->string('direccion');
+            $table->integer('telefono')->unsigned();
+            $table->string('email');
 
             $table->unsignedBigInteger('user_id');
  
@@ -35,6 +41,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('streaming');
+        Schema::dropIfExists('empresa');
     }
 };

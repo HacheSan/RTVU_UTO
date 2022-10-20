@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('periodista', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nombre',50);
-            $table->string('apellidos',50);
-            $table->integer('telefono',15)->unsigned();
+            $table->id();
+            $table->string('nombre');
+            $table->string('apellidos');
+            $table->integer('telefono')->unsigned();
             $table->timestamps();
         });
     }

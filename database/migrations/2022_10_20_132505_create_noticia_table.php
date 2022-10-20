@@ -13,20 +13,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('empresa', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nombre_empresa',50);
+        Schema::create('noticia', function (Blueprint $table) {
+            $table->id();
+            $table->string('categoria_noticia');
+            $table->string('titulo');
             $table->text('descripcion');
-            $table->string('foto_empresa',150);
-            $table->text('mision');
-            $table->text('vision');
-            $table->string('direccion',150);
-            $table->integer('telefono',15)->unsigned();
-            $table->string('email');
+            $table->string('foto_noticia');
+            $table->string('video_noticia');
+            $table->string('ciudad');
+            $table->string('pais');
+            $table->date('fecha_registro');
 
-            $table->unsignedBigInteger('usuario_id');
+            $table->unsignedBigInteger('user_id');
             //usuario
-            $table->foreign('usuario_id')->references('id')->on('users')
+            $table->foreign('user_id')->references('id')->on('users')
             ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
@@ -41,6 +41,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('empresa');
+        Schema::dropIfExists('noticia');
     }
 };
