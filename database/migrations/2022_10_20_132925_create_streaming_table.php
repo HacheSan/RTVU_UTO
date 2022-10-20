@@ -17,6 +17,13 @@ return new class extends Migration
             $table->increments('id');
             $table->string('tipo_str',50);
             $table->string('url_ip',150);
+
+            $table->unsignedBigInteger('usuario_id');
+            //usuario
+            $table->foreign('usuario_id')->references('id')->on('users')
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

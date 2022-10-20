@@ -21,6 +21,13 @@ return new class extends Migration
             $table->string('foto_programa',150);
             $table->time('hora');
             $table->date('fecha_registro');
+
+            $table->unsignedBigInteger('usuario_id');
+            //usuario
+            $table->foreign('usuario_id')->references('id')->on('users')
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -22,7 +22,14 @@ return new class extends Migration
             $table->string('video_noticia',150);
             $table->string('ciudad',25);
             $table->string('pais',25);
-            $table->date('fecha_registro');
+            $table->date('fecha_registro',$precision = 8);
+
+            $table->unsignedBigInteger('usuario_id');
+            //usuario
+            $table->foreign('usuario_id')->references('id')->on('users')
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

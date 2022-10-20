@@ -14,7 +14,21 @@ return new class extends Migration
     public function up()
     {
         Schema::create('conducido', function (Blueprint $table) {
-            $table->date('fecha');
+
+           //$table->primary(['programa_id', 'conductor_id']);
+            $table->unsignedBigInteger('programa_id');
+            $table->unsignedBigInteger('periodista_id');
+            
+            //programa
+            $table->foreign('programa_id')->references('id')->on('programa')
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+            //conductor
+            $table->foreign('periodista_id')->references('id')->on('periodista')
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -21,8 +21,15 @@ return new class extends Migration
             $table->text('mision');
             $table->text('vision');
             $table->string('direccion',150);
-            $table->integer('telefono',15)->unsigned();
+            $table->integer('telefono',15);
             $table->string('email');
+
+            $table->unsignedBigInteger('usuario_id');
+            //usuario
+            $table->foreign('usuario_id')->references('id')->on('users')
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }
