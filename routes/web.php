@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Programa;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +24,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/', function () {
+    $programa = Programa::orderBy('id', 'desc')->get();
+    return view('welcome', compact('programa'));
+});
 
 Auth::routes();
 
