@@ -23,6 +23,7 @@ return new class extends Migration
             $table->date('fecha_registro');
 
             $table->unsignedBigInteger('user_id');
+            //$table->integer('user_id')->unsigned();
             //usuario
             $table->foreign('user_id')->references('id')->on('users')
             ->constrained()
