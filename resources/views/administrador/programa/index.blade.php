@@ -17,36 +17,36 @@
 
 @section('content')
 <div class="row" style="padding: 3px 15px;">
-    <a href="{{route('admin.programa.create')}}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Nueva Programacion</a><!-- id="create_new" -->
+    <a href="{{route('admin.programas.create')}}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Nueva Programacion</a><!-- id="create_new" -->
     <!-- <a href="/importfile" class="pull-right btn btn-success"><i class="fas fa-file-import"></i> Import</a> -->
 </div><br>
 <!-- /.card-header -->
 <div class="card-body">
-    @foreach ($programa as $row)
+    @foreach ($programas as $row)
     <hr class="featurette-divider">
     @if($row->id % 2 == 0)
     <div class="row featurette">
 
-        {{-- <div class="col-md-1">
-            <a class="btn btn-secondary btn-sm" href="{{route('admin.programa.edit', $row->id)}}"><i class="fas fa-fw fa-edit"></i></a>
+        <div class="col-md-1">
+            <a class="btn btn-secondary btn-sm" href="{{route('admin.programas.edit', $row->id)}}"><i class="fas fa-fw fa-edit"></i></a>
             <form action="{{route('admin.actividades.destroy', $row->id)}}" method="post">
                 @csrf
                 @method('delete')
                 <button type="submit" onclick="return confirm('¿Seguro que quiere eliminar este registro?')" class="btn btn-danger btn-sm"><i class="fas fa-fw fa-trash"></i></button>
             </form>
-        </div> --}}
+        </div>
         <div class="col-md-7">
             <h2 class="featurette-heading text-center">{{$row->categoria_dia}}</h2>
             <h2 class="featurette-heading text-center">{{$row->nombre_programa}}</h2>
             <p class="lead">{{$row->descripcion}}</p>
             <span class="text-muted">{{$row->hora}}</span>
             <span class="text-muted">{{$row->fecha_registro}}</span>
-            <!-- <p class="lead">{{$row->place}}</p>
+            {{-- <p class="lead">{{$row->place}}</p>
         </div>
         <div class="col-md-4">
             <img class="rounded-circle" src="{{ asset ('/storage/actividades/'.$row->image)}}" alt="" height="200">
 
-        </div> -->
+        </div>--}}
     </div>
     @else
     {{-- <div class="row featurette">

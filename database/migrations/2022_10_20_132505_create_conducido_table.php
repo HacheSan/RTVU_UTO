@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('programa_id');
             $table->unsignedBigInteger('periodista_id');
  
-            $table->foreign('programa_id')->references('id')->on('programa')
+            $table->foreign('programa_id')->references('id')->on('programas')
             ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');

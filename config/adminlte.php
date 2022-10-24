@@ -326,7 +326,7 @@ return [
         ],
         [
             'text' => 'Programas',
-            'url'  => 'admin/settings',
+            'url'  => 'admin.programas.index',
             'icon' => 'fas fa-fw fa-tasks',
         ],
         [

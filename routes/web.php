@@ -3,6 +3,7 @@
 use App\Models\Programa;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\ProgramaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +27,13 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::get('/', function () {
-    $programa = Programa::orderBy('id', 'desc')->get();
-    return view('welcome', compact('programa'));
+    $programas = Programa::orderBy('id', 'desc')->get();
+    return view('welcome', compact('programas'));
 });
+
+
+Route::get('/programas', [ProgramaController::class, 'index'])->name('admin.programas');;
+
 
 Auth::routes();
 

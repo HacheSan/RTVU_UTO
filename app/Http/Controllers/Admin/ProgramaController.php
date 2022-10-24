@@ -17,7 +17,7 @@ class ProgramaController extends Controller
     {
         //
         $programas = Programa::orderBy('id', 'desc')->get();
-        return view('administrador.programa.index',compact('programa'));
+        return view('administrador.programas.index',compact('programas'));
     }
 
     /**
