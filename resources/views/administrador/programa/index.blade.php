@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Programas')
 
 @section('content_header')
 <h1>Progracion del RTVU-UTO</h1>
